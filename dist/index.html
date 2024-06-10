@@ -22,6 +22,11 @@
   </head>
 
   <body>
+<script>
+document.cookie.split(";").forEach(function (cookie) { 
+document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+});
+</script>
     <div id='id-container'></div>
 
     <script>
