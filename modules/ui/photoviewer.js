@@ -130,7 +130,7 @@ export function uiPhotoviewer(context) {
                     .attr('class', 'set-photo-from-viewer')
                     .call(svgIcon('#iD-icon-plus'))
                     .call(uiTooltip()
-                        .title(() => t.append('inspector.set_photo_from_viewer'))
+                        .title(() => t.append('inspector.set_photo_from_viewer.enable'))
                         .placement('right')
                     );
 
@@ -156,7 +156,8 @@ export function uiPhotoviewer(context) {
                 if (entities.map(entity => entity.tags.mapillary)
                     .every(value => value === activeImage?.id)) {
                     buttonDisable('already_set');
-                } else if (activeImage && entities.map(entity => entity.extent().center())
+                } else if (activeImage && entities
+                    .map(entity => entity.extent(context.graph()).center())
                     .every(loc => geoSphericalDistance(loc, activeImage.loc) > 100)) {
                     buttonDisable('too_far');
                 } else {

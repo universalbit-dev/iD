@@ -35,17 +35,43 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [@xxxx]: https://github.com/xxxx
 -->
 
+# Unreleased (2.31.0-dev)
 
-# Unreleased (2.30.0-dev)
+#### :sparkles: Usability & Accessibility
+#### :scissors: Operations
+#### :camera: Street-Level
+#### :white_check_mark: Validation
+#### :bug: Bugfixes
+#### :earth_asia: Localization
+#### :hourglass: Performance
+#### :mortar_board: Walkthrough / Help
+#### :rocket: Presets
+#### :hammer: Development
 
+
+# 2.30.2
+##### 2024-Aug-21
+
+* Rotate Mapbox imagery API tokens for Mapbox Satellite and locator overlay layers
+
+
+# 2.30.1
+##### 2024-Aug-21
+
+* Fix note not loading when iD is started with both an `id=note/123` and `map=…` hash parameter
+
+
+# 2.30.0
+##### 2024-Aug-21
+
+#### :mega: Release Highlights
+* Add Panoramax as new street level imagery provider ([#9941], thanks [@mattiapezzotti])
 #### :tada: New Features
 * Allow to start up iD with a preselected OSM note or multiselection of OSM ids in the `id` hash parameter
 #### :sparkles: Usability & Accessibility
 * Login/logout pages are now using the user's locale ([#3595], thanks [@k-yle])
 * Sort preset-specific optional fields before universal fields in "Add field" dropdown ([#10181], thanks [@zbycz])
-#### :scissors: Operations
 #### :camera: Street-Level
-* Add Panoramax as new street level imagery provider ([#9941], thanks [@mattiapezzotti])
 * Fix intermittent issues with Bing Streetside sometimes returning API results in a undocumented format ([#10341])
 #### :white_check_mark: Validation
 * Drop deprecated validation service _ImproveOSM_ ([#10302], thanks [@arch0345])
@@ -61,8 +87,6 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 * Fix crash when entering strings with quote marks in raw tag editor ([#10369])
 #### :earth_asia: Localization
 * Add address format for Thailand ([#10291], thanks [@cmoffroad])
-#### :hourglass: Performance
-#### :mortar_board: Walkthrough / Help
 #### :rocket: Presets
 * Render `highway=ladder` in a style similar to stairs ([#10257], thanks [@k-yle])
 * Render arrows on lines with `conveying` tag ([#10255], thanks [@k-yle])
@@ -74,6 +98,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#7582]: https://github.com/openstreetmap/iD/issues/7582
 [#8994]: https://github.com/openstreetmap/iD/issues/8994
 [#9993]: https://github.com/openstreetmap/iD/issues/9993
+[#9941]: https://github.com/openstreetmap/iD/issues/9941
 [#10181]: https://github.com/openstreetmap/iD/pull/10181
 [#10255]: https://github.com/openstreetmap/iD/pull/10255
 [#10257]: https://github.com/openstreetmap/iD/pull/10257
@@ -82,6 +107,7 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 [#10291]: https://github.com/openstreetmap/iD/pull/10291
 [#10302]: https://github.com/openstreetmap/iD/issues/10302
 [#10323]: https://github.com/openstreetmap/iD/issues/10323
+[#10341]: https://github.com/openstreetmap/iD/issues/10341
 [#10342]: https://github.com/openstreetmap/iD/issues/10342
 [#10369]: https://github.com/openstreetmap/iD/issues/10369
 [@zbycz]: https://github.com/zbycz
