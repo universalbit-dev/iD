@@ -125,7 +125,7 @@
     "vparse": "~1.1.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "browserslist": [
     "> 0.3%, last 6 major versions, not dead, Firefox ESR, maintained node versions"
