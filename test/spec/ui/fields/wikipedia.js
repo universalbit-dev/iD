@@ -27,7 +27,7 @@ describe('iD.uiFieldWikipedia', function() {
             type: 'wikipedia'
         });
         fetchMock.reset();
-        fetchMock.mock(new RegExp('\/w\/api\.php.*action=wbgetentities'), {
+        fetchMock.mock(new RegExp('\/w\/api\\.php.*action=wbgetentities'), {
             body: '{"entities":{"Q216353":{"id":"Q216353"}}}',
             status: 200,
             headers: { 'Content-Type': 'application/json' }
