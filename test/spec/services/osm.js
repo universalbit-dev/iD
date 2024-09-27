@@ -778,8 +778,8 @@ describe('iD.serviceOsm', function () {
             </api>
             <policy>
                 <imagery>
-                    <blacklist regex="\.foo\.com"/>
-                    <blacklist regex="\.bar\.org"/>
+                    <blacklist regex="\\.foo\\.com"/>
+                    <blacklist regex="\\.bar\\.org"/>
                 </imagery>
             </policy>
         </osm>`;
@@ -813,7 +813,7 @@ describe('iD.serviceOsm', function () {
 
                 connection.status(function() {
                     var blocklists = connection.imageryBlocklists();
-                    expect(blocklists).to.deep.equal([new RegExp('\.foo\.com'), new RegExp('\.bar\.org')]);
+                    expect(blocklists).to.deep.equal([new RegExp('\\.foo\\.com'), new RegExp('\\.bar\\.org')]);
                     done();
                 });
             });
