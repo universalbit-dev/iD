@@ -70,7 +70,7 @@ export function uiIntro(context) {
     const authorizedHashes = ['#welcome', '#navigation', '#point', '#area', '#line', '#building', '#startEditing'];
     let hash = window.location.hash;
     if (!authorizedHashes.includes(hash)) {
-      hash = '#welcome'; // default to a safe hash if the current hash is not authorized
+    hash = '#welcome'; // default to a safe hash if the current hash is not authorized
     }
     let center = context.map().center();
     let zoom = context.map().zoom();
@@ -166,12 +166,10 @@ export function uiIntro(context) {
       context.background().baseLayerSource(background);
       overlays.forEach(d => context.background().toggleOverlayLayer(d));
       if (history) { context.history().fromJSON(history, false); }
-      context.map().centerZoom(center, zoom);
-      if (authorizedHashes.includes(hash)) {
-        window.location.replace(hash);
-      }
-      context.inIntro(false);
+      context.map().centerZoom(center, zoom);    
     });
+    
+     if (authorizedHashes.includes(hash)) {window.location.replace(hash);}context.inIntro(false);
 
     let navwrap = selection
       .append('div')
