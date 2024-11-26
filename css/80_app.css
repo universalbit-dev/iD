@@ -5774,8 +5774,11 @@ li.hide + li.version .badge .tooltip .popover-arrow {
         background-color: rgba(0,0,0,.05);
     }
 }
-body {
-    scrollbar-width: 10px;
+/* Firefox */
+@-moz-document url-prefix() {
+	* {
+	    scrollbar-width: thin;
+	}
 }
 
 
