@@ -171,7 +171,6 @@ export function uiSectionRawMembershipEditor(context) {
 
 
     function addMembership(d, role) {
-        this.blur();           // avoid keeping focus on the button
         _showBlank = false;
 
         function actionAddMembers(relationId, ids, role) {
@@ -502,7 +501,10 @@ export function uiSectionRawMembershipEditor(context) {
         newMembership.selectAll('.member-entity-input')
             .on('blur', cancelEntity)   // if it wasn't accepted normally, cancel it
             .call(nearbyCombo
-                .on('accept', acceptEntity)
+                .on('accept', function(d) {
+                    this.blur(); // always blurs the triggering element
+                    acceptEntity.call(this, d);
+                })
                 .on('cancel', cancelEntity)
             );
 
