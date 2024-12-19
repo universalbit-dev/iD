@@ -54,6 +54,7 @@ export function uiInit(context) {
 
     var _lastPointerType;
 
+    var overMap;
 
     function render(container) {
 
@@ -160,7 +161,7 @@ export function uiInit(context) {
             .attr('dir', 'ltr')
             .call(map);
 
-        var overMap = content
+        overMap = content
             .append('div')
             .attr('class', 'over-map');
 
@@ -665,14 +666,16 @@ export function uiInit(context) {
             .triggerType(triggerType)
             .operations(operations);
 
-        // render the menu
-        context.map().supersurface.call(_editMenu);
+        // render the menu onto the overmap
+        overMap
+            .call(_editMenu);
     };
 
     ui.closeEditMenu = function() {
         // remove any existing menu no matter how it was added
-        context.map().supersurface
-            .select('.edit-menu').remove();
+        if (overMap !== undefined) {
+            overMap.select('.edit-menu').remove();
+        }
     };
 
 

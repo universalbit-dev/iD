@@ -2213,6 +2213,7 @@ en:
       feature_editor: "The point is now marked as a cafe. Using the feature editor, we can add more information about the cafe."
       fields_info: "In OpenStreetMap, all of the fields are optional, and it's OK to leave a field blank if you are unsure."
       add_name: "Let's pretend that you have local knowledge of this cafe, and you know its name. **Add a name for the cafe.**"
+      add_reminder: "All entered information should be objective and verifiable."
       add_close: "The feature editor will remember all of your changes automatically. **When you are finished adding the name, press the {button} button or `{esc}` to close the feature editor.**"
       reselect: "Often points will already exist, but have mistakes or be incomplete. We can edit existing points. **Select the cafe you just created.**"
       update: "Let's fill in some more details for this cafe. You can change its name, add a cuisine, or add an address. **Change the cafe details.**"

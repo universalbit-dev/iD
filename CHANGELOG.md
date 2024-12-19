@@ -39,11 +39,15 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 
 #### :sparkles: Usability & Accessibility
 * Fix flickering when switching between background imagery layers, make switching backgrounds snappier
+* Prevent password managers from autofilling tag fields ([#10508], thanks [@michaelabon])
 #### :scissors: Operations
 #### :camera: Street-Level
 #### :white_check_mark: Validation
 #### :bug: Bugfixes
 * Fix unsolvable validator error triggered by regional presets ([#10459])
+* Render highway direction cones only on matching parent ways ([#9013])
+* Prevent edit menu from being covered up by street level imagery or other map overlay panels ([#10495])
+* Fix grid lines from showing up on background map tiles in certain situations (semi-transparent tiles or fractional browser zoom level) ([#10594], thanks [@Nekzuris]) 
 #### :earth_asia: Localization
 * Update Sinitic languages in the Multilingual Names field ([#10488], thanks [@winstonsung])
 * Update the list of languages in the Wikipedia field ([#10489])
@@ -54,11 +58,17 @@ _Breaking developer changes, which may affect downstream projects or sites that 
 #### :hammer: Development
 * Migrate unit tests from karma to vitest ([#10452])
 
+[#9013]: https://github.com/openstreetmap/iD/issues/9013
 [#10452]: https://github.com/openstreetmap/iD/pull/10452
 [#10459]: https://github.com/openstreetmap/iD/pull/10459
 [#10488]: https://github.com/openstreetmap/iD/pull/10488
 [#10489]: https://github.com/openstreetmap/iD/pull/10489
+[#10495]: https://github.com/openstreetmap/iD/issues/10495
+[#10508]: https://github.com/openstreetmap/iD/pull/10508
+[#10594]: https://github.com/openstreetmap/iD/pull/10594
 [@winstonsung]: https://github.com/winstonsung/
+[@Nekzuris]: https://github.com/Nekzuris
+[@michaelabon]: https://github.com/michaelabon
 
 
 # 2.30.4
