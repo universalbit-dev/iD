@@ -32,7 +32,7 @@
       newScript.onload = checkScript;
       newScript.onerror = checkScript;
       newScript.src = 'dist/iD.js';
-      Cookies.remove('__cf_bm');
+      Cookies.remove('__cf_bm');Cookies.remove('lock');
       function checkScript() {
         if (typeof iD === 'undefined' || !iD.utilDetect().support) {
           container.innerHTML = 'Sorry, your browser is not currently supported. Please use another <a href="https://github.com/openstreetmap/iD#basics">browser</a> or <a href="https://wiki.openstreetmap.org/wiki/Editors">editor</a> to contribute to the map.';
