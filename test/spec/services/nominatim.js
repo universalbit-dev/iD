@@ -63,7 +63,7 @@ describe('iD.serviceNominatim', function() {
                 expect(callback).to.have.been.calledWithExactly(null, {address: {country_code:'at'}});
 
                 fetchMock.reset();
-                fetchMock.mock(new RegExp('https://nominatim.openstreetmap.org/reverse'), {
+                fetchMock.mock(new RegExp('https://nominatim\\.openstreetmap\\.org/reverse'), {
                     body: '{"address":{"country_code":"cz"}}',
                     status: 200,
                     headers: { 'Content-Type': 'application/json' }
