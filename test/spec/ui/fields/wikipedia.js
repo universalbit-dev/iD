@@ -202,7 +202,7 @@ describe('iD.uiFieldWikipedia', function() {
         // Create a new XHR server that will respond after 60ms to
         // separate requests after this point from those before
         fetchMock.reset();
-        fetchMock.mock(new RegExp('\/w\/api\.php.*action=wbgetentities'), {
+        fetchMock.mock(new RegExp('/w/api.php.*action=wbgetentities'), {
             body: '{"entities":{"Q216353":{"id":"Q216353"}}}',
             status: 200,
             headers: { 'Content-Type': 'application/json' }
