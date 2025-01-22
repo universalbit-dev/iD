@@ -70,6 +70,8 @@ export function uiIntro(context) {
     const authorizedHashes = ['#welcome', '#navigation', '#point', '#area', '#line', '#building', '#startEditing'];
     let hash = window.location.hash;
     if (!authorizedHashes.includes(hash)) {hash = '#welcome';}
+    const baseUrl = window.location.origin + window.location.pathname;
+    const redirectUrl = baseUrl + hash; 
     let center = context.map().center();
     let zoom = context.map().zoom();
     let background = context.background().baseLayerSource();
@@ -165,7 +167,7 @@ export function uiIntro(context) {
       overlays.forEach(d => context.background().toggleOverlayLayer(d));
       if (history) { context.history().fromJSON(history, false); }
       context.map().centerZoom(center, zoom);
-      window.location.replace(hash);
+      window.location.replace(redirectUrl);
       context.inIntro(false);
     });
 
