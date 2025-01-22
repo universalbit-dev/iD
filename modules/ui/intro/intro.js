@@ -67,7 +67,9 @@ export function uiIntro(context) {
     // Save current map state
     let osm = context.connection();
     let history = context.history().toJSON();
+    const authorizedHashes = ['#welcome', '#navigation', '#point', '#area', '#line', '#building', '#startEditing'];
     let hash = window.location.hash;
+    if (!authorizedHashes.includes(hash)) {hash = '#welcome';}
     let center = context.map().center();
     let zoom = context.map().zoom();
     let background = context.background().baseLayerSource();
