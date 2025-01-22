@@ -27,7 +27,7 @@ describe('iD.serviceNominatim', function() {
     describe('#countryCode', function() {
         it('calls the given callback with the results of the country code query', function(done) {
             var callback = sinon.spy();
-            fetchMock.mock(new RegExp('https://nominatim.openstreetmap.org/reverse'), {
+            fetchMock.mock(new RegExp('https://nominatim\\.openstreetmap\\.org/reverse'), {
                 body: '{"address":{"country_code":"at"}}',
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
