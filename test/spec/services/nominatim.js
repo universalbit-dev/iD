@@ -115,7 +115,7 @@ describe('iD.serviceNominatim', function() {
 
         it('calls the given callback with an error', function(done) {
             var callback = sinon.spy();
-            fetchMock.mock(new RegExp('https://nominatim.openstreetmap.org/reverse'), {
+            fetchMock.mock(new RegExp('https://nominatim\\.openstreetmap\\.org/reverse'), {
                 body: '{"error":"Unable to geocode"}',
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
