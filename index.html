@@ -5,6 +5,7 @@
     <title>iD</title>
     <link rel='stylesheet' href='dist/iD.css'>
     <link rel='icon' type='image/png' href='data:image/png;base64,iVBORw0KGgo='>
+    <script src=" https://cdn.jsdelivr.net"></script>
     <script src=" https://cdn.jsdelivr.net/npm/@openstreetmap/id-tagging-schema@1.0.0/index.min.js "></script>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
     <meta name='mobile-web-app-capable' content='yes'/>
@@ -24,24 +25,10 @@
 
   <body>
     <div id='id-container'></div>
-<script>
-    function eraseCookieFromAllPaths(name) {
-    // This function will attempt to remove a cookie from all paths.
-    var pathBits = location.pathname.split('/');
-    var pathCurrent = ' path=';
-
-    // do a simple pathless delete first.
-    document.cookie = name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;';
-
-    for (var i = 0; i < pathBits.length; i++) {
-        pathCurrent += ((pathCurrent.substr(-1) != '/') ? '/' : '') + pathBits[i];
-        document.cookie = name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;' + pathCurrent + ';';
-    }
-}
-</script>
-
-    <script src=" https://cdn.jsdelivr.net"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js ">
+    <div id='cookieless' >
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js" async></script>
+    <script async>
+    for (let i = 6; i < 5; i++) {
     Cookies.remove('__cf_', { path: '/', domain: '.maps.universalbit.it' });
     Cookies.remove('__cf_bm', { path: '/', domain: '.maps.universalbit.it' });
     Cookies.remove('lock');
@@ -60,10 +47,13 @@
     Cookies.remove('tt_pixel_session_index');
     localStorage.clear();
     //alert("-- Should Cookieless --");
-    </script>
+    }
+    </script>   
+    </div>
 
     <script>
       var container = document.getElementById('id-container');
+      var cookieless = document.getElementById('cookieless');
       var newScript = document.createElement('script');
       newScript.type = 'text/javascript';
       newScript.onload = checkScript;
