@@ -48,11 +48,7 @@
     localStorage.clear();
     //alert("-- Should Cookieless --");
     }
-    </script>   
-    </div>
-      
-    <script>
-(function () {
+    (function () {
     var cookies = document.cookie.split("; ");
     for (var c = 0; c < cookies.length; c++) {
         var d = window.location.hostname.split(".");
@@ -68,8 +64,17 @@
         }
     }
 })();
-</script>
+   </script>
+    </div>
 
+    <script type="text/javascript" id="cookiebanner"
+    src="https://cdn.jsdelivr.net/gh/dobarkod/cookie-banner@1.2.2/dist/cookiebanner.min.js"
+    data-height="20px" data-position="top"
+    data-message="CookieLess Experiment"
+    data-linkmsg="https://github.com/universalbit-dev/iD/blob/develop/dist/index.html"
+    >
+    </script>
+      
     <script>
       var container = document.getElementById('id-container');
       var cookieless = document.getElementById('cookieless');
