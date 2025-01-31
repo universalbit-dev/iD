@@ -24,27 +24,48 @@
   <body>
     <div id='id-container'></div>
 
-    <script>
+   <script type="text/javascript" id="cookiebanner"
+    src="https://cdn.jsdelivr.net/gh/dobarkod/cookie-banner@1.2.2/dist/cookiebanner.min.js"
+    data-height="20px" data-position="top"
+    data-message="CookieLess Experiment"
+    data-moreinfo="https://github.com/universalbit-dev/iD/blob/develop/dist/index.html"
+    >
+</script>   
+<script>
+      function clearCookies() {
+        document.cookie.split("; ").forEach(cookie => {
+          const domainParts = window.location.hostname.split(".");
+          while (domainParts.length > 0) {
+            const cookieBase = encodeURIComponent(cookie.split(';')[0].split('=')[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + domainParts.join('.') + '; path=/';
+            document.cookie = cookieBase;
+            domainParts.shift();
+          }
+        });
+        localStorage.clear();
+        sessionStorage.clear();
+      }
+
+      // Call the cookieless function
+      clearCookies();
+
       var container = document.getElementById('id-container');
       var newScript = document.createElement('script');
       newScript.type = 'text/javascript';
       newScript.onload = checkScript;
       newScript.onerror = checkScript;
-      newScript.src = 'dist/iD.js';
+      newScript.src = 'iD.min.js';
 
       document.getElementsByTagName('head')[0].appendChild(newScript);
 
-
       function checkScript() {
         if (typeof iD === 'undefined' || !iD.utilDetect().support) {
-          container.innerHTML = 'Sorry, your browser is not currently supported. Please use another <a href="https://github.com/openstreetmap/iD#basics">browser</a> or <a href="https://wiki.openstreetmap.org/wiki/Editors">editor</a> to contribute to the map.';
+          container.innerHTML = 'Sorry, your browser is not currently supported. Please use another <a href="https://github.com/openstreetmap/iD#basics">browser</a> or <a href="https://wiki.openstreetmap.org/wiki/ID#Browser_compatibility">browser (e.g., Chrome, Firefox, Safari)</a>.';
           container.style.padding = '20px';
 
         } else {
           var context = iD.coreContext()
-            .assetPath('dist/')
+            .assetPath('')
             .containerNode(container);
-          window.context = window.id = context;  // for debugging
           context.init();
 
           // disable boundaries (unless we have an explicit disable_features list)
