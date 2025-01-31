@@ -5,8 +5,6 @@
     <title>iD</title>
     <link rel='stylesheet' href='dist/iD.css'>
     <link rel='icon' type='image/png' href='data:image/png;base64,iVBORw0KGgo='>
-    <script src=" https://cdn.jsdelivr.net" async></script>
-    <script src=" https://cdn.jsdelivr.net/npm/@openstreetmap/id-tagging-schema@1.0.0/index.min.js " async></script>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
     <meta name='mobile-web-app-capable' content='yes'/>
     <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'/>
@@ -24,74 +22,15 @@
   </head>
 
   <body>
-    <div id='id-container'>
-    
-    <script type="text/javascript" id="cookiebanner"
-    src="https://cdn.jsdelivr.net/gh/dobarkod/cookie-banner@1.2.2/dist/cookiebanner.min.js"
-    data-height="20px" data-position="top"
-    data-message="CookieLess Experiment"
-    data-moreinfo="https://github.com/universalbit-dev/iD/blob/develop/dist/index.html"
-    >
-    </script>
-    </div>
+    <div id='id-container'></div>
 
-    <div id='cookieless'>
-    <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js " async></script>
-    <script async>
-    
-    Cookies.remove('__cf_', { path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('__cf_bm', { path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('lock', { path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('OptiMonkVisitorAttributes',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('lastExternalReferrerTime',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('mcwidget',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('om-country',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('_grecaptcha',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('elementor',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('tt_appInfo',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('OptiMonkShopAttributes',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('mc_pixel_session_data',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('lastExternalReferrer',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('elementor',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('tt_sessionId',{ path: '/', domain: 'maps.universalbit.it' });
-    Cookies.remove('tt_pixel_session_index',{ path: '/', domain: 'maps.universalbit.it' });
-    localStorage.clear();
-    //alert("-- Should Cookieless --");
-    (function () {
-    var cookies = document.cookie.split("; ");
-    for (var c = 0; c < cookies.length; c++) {
-        var d = window.location.hostname.split(".");
-        while (d.length > 0) {
-            var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
-            var p = location.pathname.split('/');
-            document.cookie = cookieBase + '/';
-            while (p.length > 0) {
-                document.cookie = cookieBase + p.join('/');
-                p.pop();
-            };
-            d.shift();
-        }
-    }
-})();
-    </script></div>
-
-
-    <script type="text/javascript" id="cookiebanner"
-    src="https://cdn.jsdelivr.net/gh/dobarkod/cookie-banner@1.2.2/dist/cookiebanner.min.js"
-    data-height="20px" data-position="top"
-    data-message="CookieLess Experiment"
-    data-moreinfo="https://github.com/universalbit-dev/iD/blob/develop/dist/index.html"
-    >
-    </script>
-      
     <script>
       var container = document.getElementById('id-container');
-      var cookieless = document.getElementById('cookieless'); 
       var newScript = document.createElement('script');
       newScript.type = 'text/javascript';
       newScript.onload = checkScript;
       newScript.onerror = checkScript;
-      newScript.src = 'iD.min.js';
+      newScript.src = 'dist/iD.js';
 
       document.getElementsByTagName('head')[0].appendChild(newScript);
 
@@ -103,8 +42,9 @@
 
         } else {
           var context = iD.coreContext()
-            .assetPath('')
+            .assetPath('dist/')
             .containerNode(container);
+          window.context = window.id = context;  // for debugging
           context.init();
 
           // disable boundaries (unless we have an explicit disable_features list)
