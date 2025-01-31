@@ -36,11 +36,6 @@ jobs:
       env:
         FORCE_COLOR: 2
 
-    - name: Upload Coverage
-      run: npm run coverage # Add code coverage step
-      env:
-        FORCE_COLOR: 2
-
   notify:
     needs: build
     runs-on: ubuntu-latest
