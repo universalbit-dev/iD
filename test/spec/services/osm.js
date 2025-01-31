@@ -811,13 +811,13 @@ describe('iD.serviceOsm', function () {
                     overwriteRoutes: true
                 });
 
-                connection.status(function() {
-                    var blocklists = connection.imageryBlocklists();
-                    expect(blocklists).to.deep.equal([new RegExp('\\.foo\\.com'), new RegExp('\\.bar\\.org')]);
-                    done();
-                });
-            });
+        connection.status(function() {
+            var blocklists = connection.imageryBlocklists();
+            expect(blocklists).to.deep.equal([new RegExp('\\.foo\\.com'), new RegExp('\\.bar\\.org')]);
+            done();
         });
+    });
+});
 
     });
 });
